@@ -1,0 +1,22 @@
+<root main_tree_to_execute = "MainTree" >
+    <BehaviorTree ID="MainTree">
+        <Sequence name="root_sequence">
+            <Fallback name="battery_function">
+                <BatteryLow name="battery_low"/>
+                <Sequence name="charge_sequence">
+                    <Fallback name="dock_function">
+                        <IsAtDock name="is_at_dock"/>
+                        <GoToDock name="go_to_dock"/>
+                    </Fallback>
+                    <Charge name="charge"/>
+                </Sequence>                
+            </Fallback>
+            <Fallback name="obstacle_function">
+                <Obstacle name="obstacle"/>
+                <AvoidObstacle name="avoid_obstacle"/>
+            </Fallback>
+            <MoveForward name="move_forward"/>
+            <Vacuum name="vacuum"/>
+        </Sequence>
+    </BehaviorTree>
+</root>

@@ -1,0 +1,3 @@
+/home/mohamad/Inmind/Mohamad-BT-Vacuum/BT-Vacuum/build/CMakeFiles/BT-Vacuum.dir
+/home/mohamad/Inmind/Mohamad-BT-Vacuum/BT-Vacuum/build/CMakeFiles/edit_cache.dir
+/home/mohamad/Inmind/Mohamad-BT-Vacuum/BT-Vacuum/build/CMakeFiles/rebuild_cache.dir
