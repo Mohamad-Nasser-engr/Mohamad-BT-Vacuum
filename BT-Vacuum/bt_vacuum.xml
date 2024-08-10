@@ -2,21 +2,21 @@
     <BehaviorTree ID="MainTree">
         <Sequence name="root_sequence">
             <Fallback name="battery_function">
-                <BatteryLow name="battery_low"/>
+                <BatteryLow name="battery_low" battery_level = "{battery_level}"/>
                 <Sequence name="charge_sequence">
                     <Fallback name="dock_function">
-                        <IsAtDock name="is_at_dock"/>
+                        <IsAtDock name="is_at_dock" at_dock ="{at_dock}"/>
                         <GoToDock name="go_to_dock"/>
                     </Fallback>
-                    <Charge name="charge"/>
+                    <Charge name="charge" battery_level = "{battery_level}"/>
                 </Sequence>                
             </Fallback>
             <Fallback name="obstacle_function">
-                <Obstacle name="obstacle"/>
+                <Obstacle name="obstacle" at_obstacle = "{at_obstacle}"/>
                 <AvoidObstacle name="avoid_obstacle"/>
             </Fallback>
             <MoveForward name="move_forward"/>
-            <Vacuum name="vacuum"/>
+            <Vacuum name="vacuum" battery_level = "{battery_level}"/>
         </Sequence>
     </BehaviorTree>
 </root>
