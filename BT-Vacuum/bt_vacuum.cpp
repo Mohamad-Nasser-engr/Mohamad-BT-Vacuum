@@ -14,7 +14,7 @@ BT::NodeStatus batteryLow(BT::TreeNode &self){
         throw BT::RuntimeError("missing required input message: ", msg.error());
     }
     
-    std::cout<<"battery level is " <<msg.value() <<  std::endl;
+    std::cout<<"battery level is " <<msg.value()<< "%" <<  std::endl;
     if (msg.value()<=20){
         std::cout << "Robot has bad amount of battery" << std::endl;
         return BT::NodeStatus::FAILURE;
@@ -180,9 +180,10 @@ int main()
     //create Tree
     auto tree = factory.createTreeFromFile("./../bt_vacuum.xml");
 
-    tree.rootBlackboard()->set<int>("battery_level", 60);
-    tree.rootBlackboard()->set<bool>("at_dock", false);
-    tree.rootBlackboard()->set<bool>("at_obstacle", CLOCK_THREAD_CPUTIME_ID);
+    //initialize blackboard variables
+    tree.rootBlackboard()->set<int>("battery_level", 10);
+    tree.rootBlackboard()->set<bool>("at_dock", true);
+    tree.rootBlackboard()->set<bool>("at_obstacle", true);
 
     //execute the tree
     tree.tickRoot();
